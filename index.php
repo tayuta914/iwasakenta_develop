@@ -14,6 +14,7 @@
     <li><a href="./src/study01.php">四則演算 study01.php</a></li>
     <li><a href="./src/study02.php">繰り返し study02.php</a></li>
     <li><a href="./src/study03.php">配列 study03.php</a></li>
+    <li><a href="./src/study04.php">文字列操作 study04.php</a></li>
   </ul>
 </body>
 </html>
