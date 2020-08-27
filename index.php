@@ -22,6 +22,7 @@
     <li><a href="./src/study04.php">文字列操作 study04.php</a></li>
     <li><a href="./src/study05.php">カレンダー作成 study05.php</a></li>
     <li><a href="./src/study06.php">ファイル操作 study06.php</a></li>
+    <li><a href="./src/study07.php">SQL study07.php</a></li>
   </ul>
 </body>
 </html>
