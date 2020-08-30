@@ -43,41 +43,38 @@
     // ココにコーディング
 　  ?>
     </div>
-    4. japan.prefectureからnameをwhile文、fetch_assoc()使ってすべて取得しなさい出力する際は１レコードずつ改行しなさい。</br>
+    4. japan.prefectureからnameをwhile文、fetch_assoc()とSQLのSELECT使ってすべて取得しなさい出力する際は１レコードずつ改行しなさい。</br>
     <div>
     <?php
     // ココにコーディング
 　  ?>
     </div>
-    5. //TODO join</br>
+    5. japan.region.id = japan.prefecture.region_idとした場合、関東地方(region.id = 3)と一致する都道府県と地方をSQLのJOINを使って出力しなさい。</br>
     <div>
     <?php
     // ココにコーディング
 　  ?>
     </div>
-    6. //TODO update</br>
+    6. japan.prefectureにSQLのINSERTとNOT EXISTSを使ってid=48(他のフィールドは任意)を、</br>
+    id=48のデータが存在しない時だけ登録するレコード１つを追加し、追加したレコードを出力しさい。</br>
     <div>
     <?php
     // ココにコーディング
 　  ?>
     </div>
-    6. //TODO INSERT</br>
+    6. japan.prefecture.id=1のレコードのnameを北国name_kanaをキタグニに変更し、出力しなさい。</br>
     <div>
     <?php
     // ココにコーディング
 　  ?>
     </div>
-    7. //TODO DELETE</br>
+    7. 6.で追加したレコードをSQLのDELETEを使って削除しなさい。</br>
+    該当しない場合は「該当しませんでした」、削除ができた場合は「prefecture.nameを削除しました。」と出力しなさい</br>
     <div>
     <?php
     // ココにコーディング
 　  ?>
     </div>
-    7. //TODO まとめ</br>
-    <div>
-    <?php
-    // ココにコーディング
-　  ?>
     </div>
   </body>
 </html>
