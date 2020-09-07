@@ -67,28 +67,28 @@
       if ( 40 <= $BMIResult ) {
         $figure = "肥満(3度)";
         echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
-      }
-      if  ( $BMIResult >= 35 && $BMIResult <= 39.99 ) {
+        }
+      else if  ( $BMIResult >= 35 && $BMIResult <= 39.99 ) {
         $figure = "肥満(2度)";
         echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
-      }
-      if ( $BMIResult >= 30 && $BMIResult <= 34.99 ) {
+        }
+      else if ( $BMIResult >= 30 && $BMIResult <= 34.99 ) {
         $figure = "肥満(2度)";
         echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
-      }
-      if ( $BMIResult >= 25 && $BMIResult <= 29.99 ) {
+        }
+      else if( $BMIResult >= 25 && $BMIResult <= 29.99 ) {
         $figure = "前肥満";
         echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
-      }
-      if ( $BMIResult >= 18.5 && $BMIResult <= 24.99) {
+        }
+      else if ( $BMIResult >= 18.5 && $BMIResult <= 24.99) {
         $figure = "普通";
         echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
-      }
-      if ( $BMIResult >= 18.49 && $BMIResult <= 16) {
+        }
+      else if ( $BMIResult <= 18.49 && $BMIResult >= 16) {
         $figure = "痩せ気味";
         echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
-      }
-      if ( $BMIResult <= 16) {
+        }
+      else if ( $BMIResult <= 15.99) {
         $figure = "痩せ";
         echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
       }
