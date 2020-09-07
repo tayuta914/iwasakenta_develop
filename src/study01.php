@@ -24,26 +24,27 @@
     1.変数を加算演算子を使って答えを出力しなさい</br>
     <div>
     <?php
-    // ココにコーディング
-
+     $firstNumber = 9;
+     $secondNumber = 3;
+     echo $firstNumber + $secondNumber;
     ?>
     </div>
     2.変数を減算演算子を使って答えを出力しなさい</br>
     <div>
     <?php
-    // ココにコーディング
+      echo $firstNumber - $secondNumber;
     ?>
     </div>
     3.変数を乗算演算子を使って答えを出力しなさい</br>
     <div>
     <?php
-    // ココにコーディング
+      echo $firstNumber * $secondNumber;
     ?>
     </div>
     4.変数を除算演算子を使って答えを出力しなさい</br>
     <div>
     <?php
-    // ココにコーディング
+      echo $firstNumber / $secondNumber;
     ?>
     </div>
     5.四則演算子を使ってBMI値の計算結果を出力しなさい</br>
@@ -52,20 +53,45 @@
     <a href="https://keisan.casio.jp/exec/system/1161228732" target="_blank">BMIとは</a>
     <div>
     <?php
-    // ココにコーディング
+      $height = 1.75;
+      $weight = 70;
+      $BMIResult = $weight / ($height * $height);
+      echo $BMIResult;
     ?>
     </div>
     6.四則演算子を使ってBMI値の計算結果とif文でBMI判定を出力しなさい</br>
     身長 = 175cm</br>
     体重 = 70kg</br>
-    例: 
-    あなたのBMIは〇〇で、"痩せすぎor通常体重or肥満(１度)or肥満(2度)肥満(3度)or肥満(4度)"です。</br>
     <div>
     <?php
-    // ココにコーディング
-    $BMIResult = "BMI値";
-    $figure = "BMI判定";
-    echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      if ( 40 <= $BMIResult ) {
+        $figure = "肥満(3度)";
+        echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      }
+      if  ( $BMIResult >= 35 && $BMIResult <= 39.99 ) {
+        $figure = "肥満(2度)";
+        echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      }
+      if ( $BMIResult >= 30 && $BMIResult <= 34.99 ) {
+        $figure = "肥満(2度)";
+        echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      }
+      if ( $BMIResult >= 25 && $BMIResult <= 29.99 ) {
+        $figure = "前肥満";
+        echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      }
+      if ( $BMIResult >= 18.5 && $BMIResult <= 24.99) {
+        $figure = "普通";
+        echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      }
+      if ( $BMIResult >= 18.49 && $BMIResult <= 16) {
+        $figure = "痩せ気味";
+        echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      }
+      if ( $BMIResult <= 16) {
+        $figure = "痩せ";
+        echo "あなたのBMI値は". $BMIResult . "で、" . $figure . "です。";
+      }
     ?>
     </div>
   </body>
