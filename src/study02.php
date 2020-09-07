@@ -25,6 +25,18 @@
     <div>
     <?php
     // ココにコーディング
+    $firstNumber = 2;
+    
+    // for文で$firstNumberを10回加算
+    for ($i = 0; $i < 10; $i++) {
+      $firstNumber = $firstNumber + 2;
+      if ($i <9) {
+        echo $firstNumber . ",";
+      }
+      else {
+        echo $firstNumber; 
+      }
+    }
     ?>
     </div>
     2.while文を使って変数を10回加算し全て出力しなさい</br>
@@ -32,18 +44,54 @@
     <div>
     <?php
     // ココにコーディング
+    $num = 0;
+    $firstNumber = 2;
+
+    // while文で$firstNumberを10加算
+    while ($num < 10) {
+      $firstNumber = $firstNumber + 2;
+      if ($num < 9) {
+        echo $firstNumber . ",";
+      }
+      else {
+        echo $firstNumber;
+      }
+      $num++;
+    }
     ?>
     </div>
     3.for文とif文を使って20以下の奇数を出力しなさい</br>
     <div>
     <?php
     // ココにコーディング
+    for ($i = 0; $i <= 20; $i++) {
+      // $iが1で割り切れないときに奇数と判定し、$iを出力
+      if ($i % 2 == 1) {
+        if ($i < 19) {
+          echo $i . ",";
+        }
+        else {
+          echo $i;
+        }
+      }
+    }
     ?>
     </div>
     4.for文とif文を使って20以下の偶数を出力しなさい</br>
     <div>
     <?php
     // ココにコーディング
+    for ($i = 0; $i <= 20; $i++) {
+      // $iが0で割り切れるときに偶数と判定し、$iを出力
+      if ($i % 2 == 0) {
+        if ($i < 19) {
+          echo $i . ",";
+        }
+        else {
+          echo $i;
+        }
+      }
+    }
     ?>
     </div>
   </body>
