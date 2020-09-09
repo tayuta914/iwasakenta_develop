@@ -97,105 +97,20 @@ td {
     </table>
     </div>
     <div>
-
     <?php
-    // 09/09修正後コーディング
+    // コーディング
     $keyValueList = array('pen' => '100円', 'book' => '400円', 'note' => '600円');
     print_r($keyValueList);
     ?>
-
-    <?php
-    // ココにコーディング
-    // keyとvalueの値を連想配列を用いて表に出力
-    /*
-    $key = array("pen" => '"pen"', "book" => '"book"', "note" => '"note"');
-    $value = array("value100" => '"100円"', "value400" => '"400円"', "value600" => '"600円"');
-    ?>
-    <table>
-      <tbody>
-      <tr>
-        <th>key</th>
-        <th>value</th>
-      </tr>
-      <tr>
-        <td>
-          <?php
-            print_r($key["pen"]);
-          ?>
-        </td>
-        <td>
-          <?php
-            print_r($value["value100"]);
-          ?>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <?php
-            print_r($key["book"]);
-          ?>
-        </td>
-        <td>
-          <?php
-            print_r($value["value400"]);
-          ?>
-        </td>
-      </tr>
-        <td>
-          <?php
-            print_r($key["note"]);
-          ?>
-        </td>
-        <td>
-          <?php
-            print_r($value["value600"]);
-          ?>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    */
-    ?>
-
     </div>
     <div>
-    <?php
-    // keyとvalueの連想配列part2
-    /*
-    $keyValueList = array(   
-      1=>array("key"=>'"pen"', "value"=>'"100円"'), 
-      2=>array("key"=>'"book"', "value"=>'"400円"'), 
-      3=>array("key"=>'"note"', "value"=>'"600円"'),  
-    );
-    ?>
-    <table>
-      <tbody>
-      <tr>
-        <th>key</th>
-        <th>value</th>
-      </tr>
-    <?php
-    // keyValueList[]をforeachで繰り返し出力
-    foreach ($keyValueList as $cel) {
-      echo "<tr>";
-      echo "<td>" . $cel['key'] . "</td>";
-      echo "<td>" . $cel['value'] . "</td>";
-      echo "</tr>";
-    }
-    ?>
-    </tbody>
-    </table>
-    */
-    ?>
-
     </div>
     5. "4."で作成した連想配列とforeachとif文を使って例文を出力しなさい。</br>
     例: </by>
     あたなが選んだのはnoteで600円です</by>
     <div>
-
     <?php
-    // 09/09修正後コーディング
+    // コーディング
     $item = "key";
     $value = "value";
     
@@ -205,23 +120,6 @@ td {
         echo "あなたが選んだのは" . $item . "で" . $value . "です。";
       }
     }
-    ?>
-
-    <?php
-    // ココにコーディング
-    /*
-    $item = "key";
-    $price = "value";
-    
-    // $answer['key']がnoteかつ$answer['value']が600円である時に$item, $price(変数名かえてすみません)に格納値を代入し、例文を出力
-    foreach ($keyValueList as $answer) {
-      if ($answer['key'] == '"note"' && $answer['value'] == '"600円"') {
-        $item = $answer['key'];
-        $price = $answer['value'];
-        echo "あなたが選んだのは" . $item . "で" . $price . "です。";
-      }
-    }
-    */
     ?>
     </div>
   </body>
