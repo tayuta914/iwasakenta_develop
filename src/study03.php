@@ -15,14 +15,14 @@ td {
   padding: 5px;
 }
   </style>
-  <title>配列</title>
+  <title>四則演算</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
   <body>
-    <h1>配列</h1>
+  <h1>配列</h1>
       <h3>配列の操作</h3>
       <a href="../index.php">戻る</a>
     <div>
@@ -34,18 +34,40 @@ td {
     <div>
     <?php
     // ココにコーディング
+    $apple = "リンゴ"; 
+    $banana = "バナナ";
+    $lemon = "レモン";
+
+    $fruit =array(
+      '0' => $apple,
+      '1' => $banana,
+      '2' => $lemon,
+    );
+    echo '<pre>';
+    print_r ($fruit);
+    echo '</pre>';
     ?>
     </div>
     2."1."で作成した配列に、オレンジを追加しなさい。</br>
     <div>
     <?php
     // ココにコーディング
+    $fruit += array('3' => 'オレンジ');
+
+    echo '<pre>';
+    print_r ($fruit);
+    echo '</pre>';
     ?>
     </div>
     3."2."で作成した配列の値(value)を好きな料理に全て上書きして出力しなさい。</br>
     <div>
     <?php
     // ココにコーディング
+    $fruit = array(0 => 'ラーメン', 1 => 'パスタ', 2 => '蕎麦', 3 => 'うどん');
+
+    echo '<pre>';
+    print_r ($fruit);
+    echo '</pre>';
     ?>
     </div>
     4.array()と以下の表を使って連想配列を作成し出力しなさい。</br>
@@ -70,7 +92,20 @@ td {
     </table>
     <div>
     <?php
-    // ココにコーディング
+    // ココにコーディング"
+    $itemlists = array(   
+      'pen'  =>array("key"=>'"pen"', "value"=>'"100円"'), 
+      'book' =>array("key"=>'"book"', "value"=>'"400円"'), 
+      'note' =>array("key"=>'"note"', "value"=>'"600円"'),  
+    );
+
+     foreach ($itemlists as $list) {
+       echo '<pre>';
+       echo $list['key'];
+       echo $list['value'];
+       echo '</pre>';
+     }
+
     ?>
     </div>
     5. "4."で作成した連想配列とforeachとif文を使って例文を出力しなさい。</br>
@@ -79,10 +114,13 @@ td {
     <div>
     <?php
   // ココにコーディング
-    $item = "key";
-    $value = "value";
-    echo "あなたが選んだのは". $item. "で". $value. "です。";
+      foreach ( $itemlists as $value ) {
+        if ( $value['key'] == '"note"' && $value['value'] == '"600円"' ) {
+          $item = $value['key'];
+          $cost = $value['value'];
+          echo "あなたが選んだのは" . $item . "で" . $cost . "です。";
+        }
+      }
     ?>
-    </div>
   </body>
 </html>
