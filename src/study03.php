@@ -97,9 +97,17 @@ td {
     </table>
     </div>
     <div>
+
+    <?php
+    // 09/09修正後コーディング
+    $keyValueList = array('pen' => '100円', 'book' => '400円', 'note' => '600円');
+    print_r($keyValueList);
+    ?>
+
     <?php
     // ココにコーディング
     // keyとvalueの値を連想配列を用いて表に出力
+    /*
     $key = array("pen" => '"pen"', "book" => '"book"', "note" => '"note"');
     $value = array("value100" => '"100円"', "value400" => '"400円"', "value600" => '"600円"');
     ?>
@@ -146,10 +154,14 @@ td {
       </tr>
       </tbody>
     </table>
+    */
+    ?>
+
     </div>
     <div>
     <?php
     // keyとvalueの連想配列part2
+    /*
     $keyValueList = array(   
       1=>array("key"=>'"pen"', "value"=>'"100円"'), 
       2=>array("key"=>'"book"', "value"=>'"400円"'), 
@@ -173,13 +185,31 @@ td {
     ?>
     </tbody>
     </table>
+    */
+    ?>
+
     </div>
     5. "4."で作成した連想配列とforeachとif文を使って例文を出力しなさい。</br>
     例: </by>
     あたなが選んだのはnoteで600円です</by>
     <div>
+
+    <?php
+    // 09/09修正後コーディング
+    $item = "key";
+    $value = "value";
+    
+    // keyValueListのkeyと値が'note'かつ'600円'であるとき例文を出力
+    foreach ($keyValueList as $item => $value) {
+      if ($item == 'note' && $value == '600円') {
+        echo "あなたが選んだのは" . $item . "で" . $value . "です。";
+      }
+    }
+    ?>
+
     <?php
     // ココにコーディング
+    /*
     $item = "key";
     $price = "value";
     
@@ -191,6 +221,7 @@ td {
         echo "あなたが選んだのは" . $item . "で" . $price . "です。";
       }
     }
+    */
     ?>
     </div>
   </body>
