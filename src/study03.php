@@ -34,21 +34,48 @@ td {
     <div>
     <?php
     // ココにコーディング
+    $fruit = [
+      'バナナ',
+      'リンゴ',
+      'レモン'
+    ];
+    
+    //print_r($fruit);
+    // 配列の中身を出力
+    foreach ($fruit as $result) {
+      echo $result . "\n";
+    }
     ?>
     </div>
     2."1."で作成した配列に、オレンジを追加しなさい。</br>
     <div>
     <?php
     // ココにコーディング
+    // fruit配列にオレンジを追加
+    $fruit[] = 'オレンジ';
+    
+    // オレンジ追加後の出力
+    foreach ($fruit as $result) {
+      echo $result . "\n";
+    }
     ?>
     </div>
     3."2."で作成した配列の値(value)を好きな料理に全て上書きして出力しなさい。</br>
     <div>
     <?php
     // ココにコーディング
+    // 好きな料理に置き換える配列
+    $fruitReplace = array(0 => '寿司', 1 => '焼肉', 2 => '天ぷら', 3 => '串揚げ');
+    
+    // $fruit配列を$fruitReplace配列で上書き(置換)
+    $fruitAfter = array_replace($fruit, $fruitReplace);
+    foreach ($fruitAfter as $result) {
+      echo $result . "\n";
+    }
     ?>
     </div>
     4.array()と以下の表を使って連想配列を作成し出力しなさい。</br>
+    <div>
     <table>
       <tbody>
       <tr>
@@ -68,9 +95,12 @@ td {
       </tr>
       </tbody>
     </table>
+    </div>
     <div>
     <?php
-    // ココにコーディング
+    // コーディング
+    $keyValueList = array('pen' => '100円', 'book' => '400円', 'note' => '600円');
+    print_r($keyValueList);
     ?>
     </div>
     5. "4."で作成した連想配列とforeachとif文を使って例文を出力しなさい。</br>
@@ -78,10 +108,16 @@ td {
     あたなが選んだのはnoteで600円です</by>
     <div>
     <?php
-  // ココにコーディング
+    // コーディング
     $item = "key";
     $value = "value";
-    echo "あなたが選んだのは". $item. "で". $value. "です。";
+    
+    // keyValueListのkeyと値が'note'かつ'600円'であるとき例文を出力
+    foreach ($keyValueList as $item => $value) {
+      if ($item == 'note' && $value == '600円') {
+        echo "あなたが選んだのは" . $item . "で" . $value . "です。";
+      }
+    }
     ?>
     </div>
   </body>
