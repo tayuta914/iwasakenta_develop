@@ -103,8 +103,6 @@ td {
     print_r($keyValueList);
     ?>
     </div>
-    <div>
-    </div>
     5. "4."で作成した連想配列とforeachとif文を使って例文を出力しなさい。</br>
     例: </by>
     あたなが選んだのはnoteで600円です</by>
