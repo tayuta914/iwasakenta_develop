@@ -22,7 +22,7 @@ td {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
   <body>
-    <h1>配列</h1>
+  <h1>配列</h1>
       <h3>配列の操作</h3>
       <a href="../index.php">戻る</a>
     <div>
@@ -34,18 +34,33 @@ td {
     <div>
     <?php
     // ココにコーディング
+
+    $fruit = array("リンゴ", "バナナ", "レモン");
+    echo '<pre>';
+    print_r ($fruit);
+    echo '</pre>';
     ?>
     </div>
     2."1."で作成した配列に、オレンジを追加しなさい。</br>
     <div>
     <?php
     // ココにコーディング
+    $fruit += array('3' => 'オレンジ');
+
+    echo '<pre>';
+    print_r ($fruit);
+    echo '</pre>';
     ?>
     </div>
     3."2."で作成した配列の値(value)を好きな料理に全て上書きして出力しなさい。</br>
     <div>
     <?php
     // ココにコーディング
+    $fruit = array(0 => 'ラーメン', 1 => 'パスタ', 2 => '蕎麦', 3 => 'うどん');
+
+    echo '<pre>';
+    print_r ($fruit);
+    echo '</pre>';
     ?>
     </div>
     4.array()と以下の表を使って連想配列を作成し出力しなさい。</br>
@@ -70,7 +85,12 @@ td {
     </table>
     <div>
     <?php
-    // ココにコーディング
+    // ココにコーディング"
+    $itemlists = array( "pen" => "100円", "note" => "400円", "book" => "600円");
+
+    echo "<pre>";
+    print_r($itemlists);
+    echo "</pre>";
     ?>
     </div>
     5. "4."で作成した連想配列とforeachとif文を使って例文を出力しなさい。</br>
@@ -79,10 +99,16 @@ td {
     <div>
     <?php
   // ココにコーディング
-    $item = "key";
-    $value = "value";
-    echo "あなたが選んだのは". $item. "で". $value. "です。";
+
+      $item = "key";
+      $cost = "value";
+
+      foreach ( $itemlists as $item => $cost ) {
+        if ( $item == 'book' && $cost == '600円' ) {
+          echo "あなたが選んだのは" . $item . "で" . $cost . "です。";
+        }
+      }
+      
     ?>
-    </div>
   </body>
 </html>

@@ -14,7 +14,7 @@
 </head>
 <body>
   <h1>研修用問題集</h1>
-  実際に対象のファイルを編集して要件にあったコーディングをしよう!!
+  実際に対象のファイルを編集して要件にあったコーディングをしよう!!!!!!
   <ul>
     <li><a href="./src/study01.php">四則演算 study01.php</a></li>
     <li><a href="./src/study02.php">繰り返し study02.php</a></li>
