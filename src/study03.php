@@ -34,15 +34,8 @@ td {
     <div>
     <?php
     // ココにコーディング
-    $apple = "リンゴ"; 
-    $banana = "バナナ";
-    $lemon = "レモン";
 
-    $fruit =array(
-      '0' => $apple,
-      '1' => $banana,
-      '2' => $lemon,
-    );
+    $fruit =array( "リンゴ", "バナナ", "レモン");
     echo '<pre>';
     print_r ($fruit);
     echo '</pre>';
@@ -93,19 +86,11 @@ td {
     <div>
     <?php
     // ココにコーディング"
-    $itemlists = array(   
-      'pen'  =>array("key"=>'"pen"', "value"=>'"100円"'), 
-      'book' =>array("key"=>'"book"', "value"=>'"400円"'), 
-      'note' =>array("key"=>'"note"', "value"=>'"600円"'),  
-    );
+    $itemlists = array( "pen" => "100円", "note" => "400円", "book" => "600円");
 
-     foreach ($itemlists as $list) {
-       echo '<pre>';
-       echo $list['key'];
-       echo $list['value'];
-       echo '</pre>';
-     }
-
+    echo "<pre>";
+    print_r($itemlists);
+    echo "</pre>";
     ?>
     </div>
     5. "4."で作成した連想配列とforeachとif文を使って例文を出力しなさい。</br>
@@ -114,13 +99,16 @@ td {
     <div>
     <?php
   // ココにコーディング
-      foreach ( $itemlists as $value ) {
-        if ( $value['key'] == '"note"' && $value['value'] == '"600円"' ) {
-          $item = $value['key'];
-          $cost = $value['value'];
+
+      $item = "key";
+      $cost = "value";
+
+      foreach ( $itemlists as $item => $cost ) {
+        if ( $item == 'book' && $cost == '600円' ) {
           echo "あなたが選んだのは" . $item . "で" . $cost . "です。";
         }
       }
+      
     ?>
   </body>
 </html>
