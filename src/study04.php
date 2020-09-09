@@ -23,7 +23,11 @@
     $typoString = "qaplee"</by>
     <div>
     <?php
-    $typoString = "qaplee"
+    $typoString = "qaplee";
+
+    $typoString = "qapplee";
+
+    echo substr($typoString,1,-1);
     // ココにコーディング
     ?>
     </div>
@@ -31,8 +35,9 @@
     $typoString = "ハロー こんには ニーハオ"</by>
     <div>
     <?php
-    $typoString = "ハロー こんにちは ニーハオ"
+    $typoString = "ハロー こんにちは ニーハオ";
     // ココにコーディング
+    echo mb_substr($typoString,4,5,"UTF-8");
     ?>
     </div>
     3.substr_replace()使って以下のように置き換えしに出力しなさい。</br>
@@ -41,7 +46,9 @@
     <div>
     <?php
     $rahmen = "私はラーメンが好きです。";
+    $rahmen = "私はが好きです。";
     // ココにコーディング
+      echo substr_replace($rahmen,"つけ麺",6,"UTF-8");
     ?>
     </div>
     4.以下の配列をarray()で作成し値(vaule)の"()"を削除しなさい。</br>
@@ -53,6 +60,17 @@
     <div>
     <?php
     // ココにコーディング
+      $dessert = array("(cake)","(chocolate)","(candy)");
+      echo '<pre>';
+      print_r($dessert);
+      echo '</pre>';
+
+      $dessert = str_replace('(','',$dessert);
+      $dessert = str_replace(')','',$dessert);
+      echo '<pre>';
+      print_r ($dessert);
+      echo '</pre>';
+
     ?>
     </div>
     5.以下の文字列の"?()%"を削除し1単語ずつ配列になさい。</br>
@@ -67,6 +85,14 @@
     <?php
     $manufacturerStrting = "hitachi?so%ny%(mitubishi sharp)";
     // ココにコーディング
+    $manufacturerStrting = str_replace('?',' ',$manufacturerStrting);
+    $manufacturerStrting = str_replace('%','',$manufacturerStrting);
+    $manufacturerStrting = str_replace('(',' ',$manufacturerStrting);
+    $manufacturerStrting = str_replace(')',' ',$manufacturerStrting);
+    $manufacturerStrting = trim($manufacturerStrting);
+    $manufacturerStrting = explode(" ",$manufacturerStrting);
+
+    print_r ($manufacturerStrting);
     ?>
     </div>
   </body>
