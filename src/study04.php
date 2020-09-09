@@ -66,8 +66,8 @@
       '"(candy)"'
     ];
     
-    $dessert = str_replace('"(', '', $dessert);
-    $dessert = str_replace(')"', '', $dessert);
+    $dessert = str_replace('(', '', $dessert);
+    $dessert = str_replace(')', '', $dessert);
     print_r($dessert);
     ?>
     </div>
