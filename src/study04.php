@@ -65,10 +65,8 @@
       print_r($dessert);
       echo '</pre>';
 
-      $dessert = str_replace('(','',$dessert);
-      $dessert = str_replace(')','',$dessert);
       echo '<pre>';
-      print_r ($dessert);
+      print_r(preg_replace('/[()]/','',$dessert));
       echo '</pre>';
 
     ?>
@@ -85,10 +83,8 @@
     <?php
     $manufacturerStrting = "hitachi?so%ny%(mitubishi sharp)";
     // ココにコーディング
-    $manufacturerStrting = str_replace('?',' ',$manufacturerStrting);
-    $manufacturerStrting = str_replace('%','',$manufacturerStrting);
-    $manufacturerStrting = str_replace('(',' ',$manufacturerStrting);
-    $manufacturerStrting = str_replace(')',' ',$manufacturerStrting);
+    $manufacturerStrting = preg_replace('/[?()]/',' ',$manufacturerStrting);
+    $manufacturerStrting = preg_replace('/[%]/','',$manufacturerStrting);
     $manufacturerStrting = trim($manufacturerStrting);
     $manufacturerStrting = explode(" ",$manufacturerStrting);
 
