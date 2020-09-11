@@ -19,25 +19,20 @@
       <a href="../index.php">戻る</a>
     <div>
     </div>
-    1.substr()を使ってappleを取り出し出力しなさい。</br>
-    $typoString = "qapplee"</by>
+    1.substr()を使ってappleを取り出し出力しなさい。</by>
+    $typoString = "qaplee"</by>
     <div>
     <?php
+    $typoString = "qaplee"
     // ココにコーディング
-    $typoString = "qapplee";
-    
-    echo substr($typoString, 1, -1);
     ?>
     </div>
     2.mb_substr()を使ってこんにちはを取り出し出力しなさい。</br>
     $typoString = "ハロー こんには ニーハオ"</by>
     <div>
     <?php
+    $typoString = "ハロー こんにちは ニーハオ"
     // ココにコーディング
-    $typoString = "ハロー こんにちは ニーハオ";
-    
-    $helloWord = mb_substr($typoString, 4, 5);
-    echo $helloWord;
     ?>
     </div>
     3.substr_replace()使って以下のように置き換えしに出力しなさい。</br>
@@ -47,11 +42,9 @@
     <?php
     $rahmen = "私はラーメンが好きです。";
     // ココにコーディング
-    echo "置換前：" . $rahmen . "<br>";
-    echo "置換後：" . substr_replace($rahmen, '私はつけ麺が好きです。', 0);
     ?>
     </div>
-    4.以下の配列をarray()で作成し値(value)の"()"を削除しなさい。</br>
+    4.以下の配列をarray()で作成し値(vaule)の"()"を削除しなさい。</br>
     $dessert { </br>
       [0]=> "(cake)"</br>
       [1]=> "(chocolate)"</br>
@@ -60,15 +53,6 @@
     <div>
     <?php
     // ココにコーディング
-    $dessert = [
-      '"(cake)"',
-      '"(chocolate)"',
-      '"(candy)"'
-    ];
-    
-    $dessert = str_replace('"(', '', $dessert);
-    $dessert = str_replace(')"', '', $dessert);
-    print_r($dessert);
     ?>
     </div>
     5.以下の文字列の"?()%"を削除し1単語ずつ配列になさい。</br>
@@ -83,15 +67,6 @@
     <?php
     $manufacturerStrting = "hitachi?so%ny%(mitubishi sharp)";
     // ココにコーディング
-    // "?()%"を削除orスペースに置換
-    $manufacturerStrting = str_replace('?', ' ', $manufacturerStrting);
-    $manufacturerStrting = str_replace('(', ' ', $manufacturerStrting);
-    $manufacturerStrting = str_replace(')', '', $manufacturerStrting);
-    $manufacturerStrting = str_replace('%', '', $manufacturerStrting);
-
-    // explode関数を用いてスペースを区切りに"hitachi", "sony", "mitubishi", "sharp"の文字列を1単語ずつ配列に格納
-    $manufacturerStrtingArray = explode(" ", $manufacturerStrting);
-    print_r($manufacturerStrtingArray);
     ?>
     </div>
   </body>
