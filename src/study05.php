@@ -23,9 +23,63 @@
     <a  href="./img/2020_08_calendar.png" target="_blank">完成版</a>
     <div>
     <?php
-    // ココにコーディング
-
-　  ?>
+ 
+        $year = date('Y');
+        $month = date('8');
+        
+        $last_day = date('j', mktime(0, 0, 0, $month + 1, 0, $year));
+        
+        $calendar = array();
+        $j = 0;
+    
+      for ($i = 1; $i < $last_day + 1; $i++) {
+        $week = date('w', mktime(0, 0, 0, $month, $i, $year));
+    
+        if ($i == 1) {
+            for ($s = 1; $s <= $week; $s++) {
+                $calendar[$j]['day'] = '';
+                $j++;
+            }
+        }
+        $calendar[$j]['day'] = $i;
+        $j++;
+        if ($i == $last_day) {
+            for ($e = 1; $e <= 6 - $week; $e++) {
+                $calendar[$j]['day'] = '';
+                $j++;
+            }
+        }
+      }
+    ?>
     </div>
+    <?php echo $year; ?>年<?php echo $month; ?>月のカレンダー
+    <div class = "conteiner">
+        <table class = "august">
+          <tr>
+            <th> 日　</th>
+            <th> 月　</th>
+            <th> 火　</th>
+            <th> 水　</th>
+            <th> 木　</th>
+            <th> 金　</th>
+            <th> 土　</th>
+          </tr>
+          <?php $cnt = 0; ?>
+          <?php foreach ($calendar as $key => $value): ?>
+        
+            <td>
+              <?php $cnt++; ?>
+              <?php echo $value['day']; ?>
+              </td>
+        
+          <?php if ($cnt == 7): ?>
+          </tr>
+          <tr>
+          <?php $cnt = 0; ?>
+          <?php endif; ?>
+        
+          <?php endforeach; ?>
+        </table>
+      </div>
   </body>
 </html>
