@@ -23,8 +23,6 @@
     $typoString = "qaplee"</by>
     <div>
     <?php
-    $typoString = "qaplee";
-
     $typoString = "qapplee";
 
     echo substr($typoString,1,-1);
