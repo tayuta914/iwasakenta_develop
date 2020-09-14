@@ -83,10 +83,8 @@
     <?php
     $manufacturerStrting = "hitachi?so%ny%(mitubishi sharp)";
     // ココにコーディング
-    $manufacturerStrting = preg_replace('/[?()]/',' ',$manufacturerStrting);
-    $manufacturerStrting = preg_replace('/[%]/','',$manufacturerStrting);
-    $manufacturerStrting = trim($manufacturerStrting);
-    $manufacturerStrting = explode(" ",$manufacturerStrting);
+    $manufacturerStrting = preg_replace('/%|\)/','',$manufacturerStrting);
+    $manufacturerStrting = preg_split('/[?( ]/',$manufacturerStrting);
 
     print_r ($manufacturerStrting);
     ?>
