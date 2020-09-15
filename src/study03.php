@@ -82,6 +82,8 @@ td {
     $item = "key";
     $value = "value";
     echo "あなたが選んだのは". $item. "で". $value. "です。";
+
+    // コンフリクトしろーーーー！
     ?>
     </div>
   </body>
