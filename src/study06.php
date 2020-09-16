@@ -24,9 +24,10 @@
     <div>
     <?php
     // ココにコーディング
-    $img = base64_encode(file_get_contents('img/study06.png'));
+    $date = base64_encode("study06.png");
+
+    print($date);
 　  ?>
-    <img src = "data:image/png;base64,<?php echo $img; ?>">
     </div>
     2."1."のエンコードした変数をbase64オブジェクトをデコードしてファイル名を「半角英数字の大文字」に変更した上で出力しなさい。</br>
     ※画像自体の表示と処理が完了した変数の出力</br>
@@ -34,11 +35,14 @@
     <div>
     <?php
     // ココにコーディング
-    file_put_contents('img/STUDY06.png', base64_decode($img));
-    echo '変数：' . $img;
-
+    $date = base64_decode("c3R1ZHkwNi5wbmc=");
+    echo $date;
+    $date = str_replace('study06.png','STUDY06.png',$date);
+    echo "<pre>";
+    echo $date;
+    echo "</pre>";
 　  ?>
-       <img src="data:image/png;base64,<?php echo $img; ?>">
+    <img src= "img/study06.png">
     </div>
     3-1.ボタンを押下したら、src/files/にstudy06.csvファイルが保存される実装。</br>
     3-2.htmlでボタンを作成し押下したら実行される関数を作りなさい</br>
@@ -52,7 +56,7 @@
       $files = array("apple","banna","orenge");
 
       if (isset($_POST['file'])) {
-        $file = fopen("src/study06.csv", "w"); 
+        $file = fopen("files/study06.csv", "w"); 
   
         if ($file) {
           var_dump(fputcsv($file, $files));
