@@ -18,7 +18,7 @@
       <h3>データのやりとり</h3>
       <a href="../index.php">戻る</a>
     <div>
-    <b>要件</b>
+    <b>要件</b></br>
     ・HTMLでメール送信フォームを作成しなさい</br>
       ・以下のformを作成しなさい
       ・名前　textbox </br>
@@ -30,8 +30,34 @@
     ※SQLはjapn.sqlを使用しなさい。
     <div>
     <?php
-    // ココにコーディング
+    // DB接続
+    $mysqli = new mysqli( 'localhost', 'root', 'root', 'japan');
+    
+    if ($mysqli->connect_error) {
+      $mysqli->close();
+      echo "データベースとの接続ができませんでした。";
+    }
+    else {
+      $mysqli->set_charset("utf8");
+    }
+    $sql = 'SELECT name FROM prefecture';
+    $res = $mysqli->query($sql);
+    while ($_GET = $res->fetch_assoc()) {
+      //echo $_GET["name"] . "<br>";
+    }
 　  ?>
+
+    <form action="study08-result.php" method="post">
+    名前:</br>
+    <input type="text" name="named" /></br>
+    都道府県:</br>
+    <select name="prefectureData" size="1">
+    <option value="">北海道</option>
+    </select></br>
+    お問い合わせ内容:</br>
+    <p><input type="text" name="quiry" style="width:400px;height:200px"; /></p>
+    <button type="submit" name="send">送信</button>
+    </form>
     </div>
     </div>
   </body>
