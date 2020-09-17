@@ -18,7 +18,11 @@
       <h3>データのやりとり</h3>
       <a href="../index.php">戻る</a>
     <div>
+<<<<<<< HEAD
     <b>要件</b>
+=======
+    <b>要件</b></br>
+>>>>>>> 1ebf5b400d42d687bc6d44443a0ba8966506a913
     ・HTMLでメール送信フォームを作成しなさい</br>
       ・以下のformを作成しなさい
       ・名前　textbox </br>
@@ -30,14 +34,24 @@
     ※SQLはjapn.sqlを使用しなさい。
     <div>
     <?php
+<<<<<<< HEAD
     // db接続
     $mysqli = new mysqli( 'localhost', 'root', 'root', 'japan');
     if ($mysqli->connect_error) {
       $mysqli->close();
+=======
+    // DB接続
+    $mysqli = new mysqli( 'localhost', 'root', 'root', 'japan');
+    
+    if ($mysqli->connect_error) {
+      $mysqli->close();
+      echo "データベースとの接続ができませんでした。";
+>>>>>>> 1ebf5b400d42d687bc6d44443a0ba8966506a913
     }
     else {
       $mysqli->set_charset("utf8");
     }
+<<<<<<< HEAD
     // sql文-実行
     $sql = 'SELECT name FROM prefecture';
     $res = $mysqli->query($sql);
@@ -57,6 +71,24 @@
     お問い合わせ内容:</br>
     <p><textarea name="quiry" style="resize:none; width:400px; height:200px"; maxlength="500" required placeholder="お問い合わせ内容を入力してください。">
     </textarea></p>
+=======
+    $sql = 'SELECT name FROM prefecture';
+    $res = $mysqli->query($sql);
+    while ($_GET = $res->fetch_assoc()) {
+      //echo $_GET["name"] . "<br>";
+    }
+　  ?>
+
+    <form action="study08-result.php" method="post">
+    名前:</br>
+    <input type="text" name="named" /></br>
+    都道府県:</br>
+    <select name="prefectureData" size="1">
+    <option value="">北海道</option>
+    </select></br>
+    お問い合わせ内容:</br>
+    <p><input type="text" name="quiry" style="width:400px;height:200px"; /></p>
+>>>>>>> 1ebf5b400d42d687bc6d44443a0ba8966506a913
     <button type="submit" name="send">送信</button>
     </form>
     </div>
