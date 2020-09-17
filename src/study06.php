@@ -25,18 +25,30 @@
     <?php
     // study06.pngをencode
     $img = base64_encode(file_get_contents('img/study06.png'));
-　  ?>
-    <img src="data:image/png;base64,<?php echo $img; ?>">
+    echo 'エンコード出力：' . $img;
+    /*
+    $encodeText = 'study06.php';
+    $encodeText = base64_encode($encodeText);
+    echo 'エンコード出力part2: ' . $imgTitle;
+    */
+    ?>
     </div>
     2."1."のエンコードした変数をbase64オブジェクトをデコードしてファイル名を「半角英数字の大文字」に変更した上で出力しなさい。</br>
     ※画像自体の表示と処理が完了した変数の出力</br>
     study06.png → STUDY06.png</br>
     <div>
     <?php
-    // study06.pngをSTUDY06.pngとしてimg配下に保存
-    file_put_contents('img/STUDY06.png', base64_decode($img));
-    echo 'decode後の変数出力：' . $img;  // decode後の$imgを出力
-　  ?>
+    // study06.pngをSTUDY06.pngとしてデコード
+    /*
+    $decodeText = base64_decode($encodeText);
+    $imgTitle = str_replace('study06.png','STUDY06.png',$decodeText);
+    echo $imgTitle;
+　  */
+    // rename()をifとからめながら各ファイル名を変数格納したり、パスごとふくめた指定でする？
+    if (bool rename("study06.php", "STUDY06.php")) {
+      
+    }
+    ?>
     <img src="data:image/png;base64,<?php echo $img; ?>">
     </div>
     3-1.ボタンを押下したら、src/files/にstudy06.csvファイルが保存される実装。</br>
