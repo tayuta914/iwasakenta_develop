@@ -49,7 +49,7 @@
       echo substr_replace($rahmen,"つけ麺",6,"UTF-8");
     ?>
     </div>
-    4.以下の配列をarray()で作成し値(vaule)の"()"を削除しなさい。</br>
+    4.以下の配列をarray()で作成し値(vaule)の()カッコを削除しなさい。</br>
     $dessert { </br>
       [0]=> "(cake)"</br>
       [1]=> "(chocolate)"</br>
@@ -69,8 +69,9 @@
 
     ?>
     </div>
-    5.以下の文字列の"?()%"を削除し1単語ずつ配列になさい。</br>
+    5.以下の文字列の"?()%"を削除し1単語ずつ配列にしなさい。</br>
     $manufacturerStrting = "hitachi?so%ny%(mitubishi sharp)";</by>
+    このような配列にする</br>
     $manufacturerStrtingArray {
       [0]=> "(hitachi)"</br>
       [1]=> "(sony)"</br>
