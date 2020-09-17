@@ -20,8 +20,18 @@
     <div>
     <div>
     <?php
-    // ココにコーディング
+    // study08からPOSTで受け取った入力内容を取得
+    $named = $_POST['named'];                   // 名前
+    $prefectureData = $_POST['prefectureData']; // 都道府県
+    $quiry = $_POST['quiry'];                   // お問い合わせ内容
 　  ?>
+    <p>-入力内容確認-</p>
+    名前:</br>
+    <?php echo $named . "</br>"; ?></br>
+    都道府県:</br>
+    <?php echo $prefectureData . "</br>"; ?></br>
+    お問い合わせ内容:</br>
+    <?php echo nl2br($quiry) . "</br>"; ?>
     </div>
     </div>
   </body>

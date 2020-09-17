@@ -30,8 +30,35 @@
     ※SQLはjapn.sqlを使用しなさい。
     <div>
     <?php
-    // ココにコーディング
+    // db接続
+    $mysqli = new mysqli( 'localhost', 'root', 'root', 'japan');
+    if ($mysqli->connect_error) {
+      $mysqli->close();
+    }
+    else {
+      $mysqli->set_charset("utf8");
+    }
+    // sql文-実行
+    $sql = 'SELECT name FROM prefecture';
+    $res = $mysqli->query($sql);
 　  ?>
+    <form action="study08-result.php" method="post">
+    名前:</br>
+    <input type="text" name="named" style="width:220px"; required placeholder="名前を入力してください。"/></br>
+    都道府県:</br>
+    <select name="prefectureData" size="1">
+    <?php
+    // sqlから取得したprefecture.nameを全出力
+    foreach ($res as $preData) {
+      echo "<option>" . $preData["name"] . "</option>";
+    }
+    ?>
+    </select></br>
+    お問い合わせ内容:</br>
+    <p><textarea name="quiry" style="resize:none; width:400px; height:200px"; maxlength="500" required placeholder="お問い合わせ内容を入力してください。">
+    </textarea></p>
+    <button type="submit" name="send">送信</button>
+    </form>
     </div>
     </div>
   </body>
