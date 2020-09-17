@@ -44,7 +44,7 @@
     // ココにコーディング
     ?>
     </div>
-    4.以下の配列をarray()で作成し値(vaule)の()カッコを削除しなさい。</br>
+    4.以下の配列をarray()で作成し値(value)の()カッコを削除しなさい。</br>
     $dessert { </br>
       [0]=> "(cake)"</br>
       [1]=> "(chocolate)"</br>
@@ -53,6 +53,20 @@
     <div>
     <?php
     // ココにコーディング
+
+    $dessert = [
+      '"(cake)"',
+      '"(chocolate)"',
+      '"(candy)"'
+    ];
+    // 正規表現を用いないで1つの処理もできました
+    $dessert = str_replace(str_split('()'), '', $dessert);
+    print_r($dessert);
+    echo "<br>";
+    // preg_replace正規表現
+    $dessert = preg_replace('/[()]/', '', $dessert);
+    print_r($dessert);
+
     ?>
     </div>
     5.以下の文字列の"?()%"を削除し1単語ずつ配列にしなさい。</br>
@@ -67,7 +81,55 @@
     <div>
     <?php
     $manufacturerStrting = "hitachi?so%ny%(mitubishi sharp)";
-    // ココにコーディング
+
+    // hitachi, sony, mitubishi, sharpを正規表現を用いて取得
+    $manufacturerStrting = preg_replace('/[?()%]/', '', $manufacturerStrting);
+
+    // preg_matchで戻り値がtrueであった際に$manufacturerStrtingArray[$i]に各文字列を格納
+    for ($i = 0; $i < 4; $i++) {
+      if (preg_match('/hitachi/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = substr('hitachi', 0, 7);
+        $manufacturerStrting = ltrim($manufacturerStrting, 'hitachi');
+      }
+      else if (preg_match('/sony/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = substr('sony', 0, 4);
+        $manufacturerStrting = ltrim($manufacturerStrting, 'sony');
+      }
+      else if (preg_match('/mitubishi/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = substr('mitubishi', 0, 9);
+        $manufacturerStrting = ltrim($manufacturerStrting, 'mitubishi');
+      }
+      else if (preg_match('/sharp/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = substr('sharp', 0, 5);
+        $manufacturerStrting = ltrim($manufacturerStrting, 'sharp');
+      }
+    }
+    print_r($manufacturerStrtingArray);
+    echo '<br>';
+
+    $manufacturerStrting = "hitachi?so%ny%(mitubishi sharp)";
+    // 結果は出るが…
+    $manufacturerStrting = preg_replace('/[?()%]/', '', $manufacturerStrting);
+    
+    for ($i = 0; $i < 4; $i++) {
+      if (preg_match('/hitachi/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = 'hitachi';
+        $manufacturerStrting = str_replace('hitachi', '', $manufacturerStrting);
+      }
+      else if (preg_match('/sony/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = 'sony';
+        $manufacturerStrting = str_replace('sony', '', $manufacturerStrting);
+      }
+      else if (preg_match('/mitubishi/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = 'mitubishi';
+        $manufacturerStrting = str_replace('mitubishi', '', $manufacturerStrting);
+      }
+      else if (preg_match('/sharp/',$manufacturerStrting)) {
+        $manufacturerStrtingArray[$i] = 'sharp';
+        $manufacturerStrting = str_replace('sharp', '', $manufacturerStrting);
+      }
+    }
+    print_r($manufacturerStrtingArray);
     ?>
     </div>
   </body>
