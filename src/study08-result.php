@@ -20,7 +20,6 @@
     <div>
     <div>
     <?php
-<<<<<<< HEAD
     // study08からPOSTで受け取った入力内容を取得
     $named = $_POST['named'];                   // 名前
     $prefectureData = $_POST['prefectureData']; // 都道府県
@@ -33,10 +32,6 @@
     <?php echo $prefectureData . "</br>"; ?></br>
     お問い合わせ内容:</br>
     <?php echo nl2br($quiry) . "</br>"; ?>
-=======
-    // ココにコーディング
-　  ?>
->>>>>>> 1ebf5b400d42d687bc6d44443a0ba8966506a913
     </div>
     </div>
   </body>
