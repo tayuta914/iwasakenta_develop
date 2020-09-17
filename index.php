@@ -24,6 +24,9 @@
     <li><a href="./src/study06.php">ファイル操作 study06.php</a></li>
     <li><a href="./src/study07.php">SQL study07.php</a></li>
     <li><a href="./src/study08.php">データのやりとり study08.php</a></li>
+    <li><a href="./src/study09.php">データのやりとり2 study09.php</a></li>
+    <li><a href="./src/study10.php">関数化 study10.php</a></li>
+    <li><a href="./src/study11.php">多重配列 study11.php</a></li>
   </ul>
 </body>
 </html>

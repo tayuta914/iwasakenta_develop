@@ -111,13 +111,14 @@ td {
     // コーディング
     $item = "key";
     $value = "value";
-    
+        
     // keyValueListのkeyと値が'note'かつ'600円'であるとき例文を出力
     foreach ($keyValueList as $item => $value) {
       if ($item == 'note' && $value == '600円') {
         echo "あなたが選んだのは" . $item . "で" . $value . "です。";
       }
     }
+    echo "あなたが選んだのは". $item. "で". $value. "です。";
     ?>
     </div>
   </body>
