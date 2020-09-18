@@ -28,51 +28,132 @@
     失敗した場合、mysqli_close()を使って接続を閉じて、「データベースとの接続を閉じました」と出力なさい。</br>
     <div>
     <?php
-    // ココにコーディング
+    // MAMPのMySQLに接続
+    $mysqli = new mysqli( 'localhost', 'root', 'root', 'japan');
+    
+    // $mysqliを実行した際にエラーが返ってきたらDBの接続を閉じる
+    if ($mysqli->connect_error) {
+      $mysqli->close();
+      echo "データベースとの接続を閉じました";
+    }
+    else {
+      $mysqli->set_charset("utf8");
+      echo "データベースとの接続ができました";
+    }
 　  ?>
     </div>
     2. japan.prefecture.id=14のレコードを取得しnameを出力しなさい</br>
     <div>
     <?php
-    // ココにコーディング
+    // SELECTでprefectureテーブルのid=14のレコードを取得
+    $sql = 'SELECT name FROM prefecture WHERE id = 14';
+    $res = $mysqli->query($sql);
+    
+    foreach ($res as $value) {
+      echo $value["name"];
+    }
+    // 出力結果を閉じる
+    $res->close();
 　  ?>
     </div>
     3. japan.prefecture.name='秋田県'のレコードを取得しname_kanaを出力しなさい</br>
     <div>
     <?php
-    // ココにコーディング
+    // prefectureテーブルname=秋田県のレコードを取得
+    $sql = 'SELECT name_kana FROM prefecture WHERE name = "秋田県"';
+    $res = $mysqli->query($sql);
+    
+    // 連想配列に格納し出力
+    foreach ($res as $value) {
+      echo $value["name_kana"];
+    }
+    $res->close();
 　  ?>
     </div>
     4. japan.prefectureからnameをwhile文、fetch_assoc()とSQLのSELECT使ってすべて取得しなさい出力する際は１レコードずつ改行しなさい。</br>
     <div>
     <?php
-    // ココにコーディング
+    // prefectureテーブルのnameを全取得
+    $sql = 'SELECT name FROM prefecture';
+    if ($res = $mysqli->query($sql)) {
+      while ($row = $res->fetch_assoc()) {
+          echo $row["name"] . "<br>";
+      }
+      $res->close();
+    }
 　  ?>
     </div>
     5. japan.region.id = japan.prefecture.region_idとした場合、関東地方(region.id = 3)と一致する都道府県と地方をSQLのJOINを使って出力しなさい。</br>
     <div>
     <?php
-    // ココにコーディング
+    // region.idとprefecture.id=3のときにregion_name(都道府県名)とprefecture_name(地方名)をJOINで結合し出力
+    $sql = 'SELECT region.name AS region_name, prefecture.name AS prefecture_name 
+            FROM region INNER JOIN prefecture ON region.id = prefecture.region_id AND region.id = 3';
+    
+    // idが一致したものがあれば繰り返し出力
+    if ($res = $mysqli->query($sql)) {
+      while ($row = $res->fetch_assoc()) {
+        echo $row["region_name"] . ": " . $row["prefecture_name"] . "<br>";
+      }
+      $res->close();
+    }
 　  ?>
     </div>
     6. japan.prefectureにSQLのINSERTとNOT EXISTSを使ってid=48(他のフィールドは任意)を、</br>
     id=48のデータが存在しない時だけ登録するレコード１つを追加し、追加したレコードを出力しさい。</br>
     <div>
     <?php
-    // ココにコーディング
+    // prefecture.id=48が存在しないとき各カラムにフィールドを挿入
+    $sql = 'INSERT INTO prefecture(id, region_id, name, name_kana)
+    SELECT 48, 9, "田中太郎県", "タナカタロウケン"
+    WHERE NOT EXISTS(SELECT * FROM prefecture where id = 48)';
+    
+    if ($res = $mysqli->query($sql)) {
+      $sql = 'SELECT * FROM prefecture WHERE id = 48';
+      $res = $mysqli->query($sql);
+      
+      foreach ($res as $value) {
+        echo $value["id"] . ", " . $value["region_id"]  . ", " . $value["name"] . ", " . $value["name_kana"];
+      }
+        $res->close();
+    }
+    else {
+      echo "既にデータは存在しています。";
+      $res->close();
+    }
 　  ?>
     </div>
-    6. japan.prefecture.id=1のレコードのnameを北国name_kanaをキタグニに変更し、出力しなさい。</br>
+    7. japan.prefecture.id=1のレコードのnameを北国name_kanaをキタグニに変更し、出力しなさい。</br>
     <div>
     <?php
-    // ココにコーディング
+    // UPDETE文でprefecture.id=1のnameとname_kanaを変更
+    $sql = 'UPDATE prefecture SET name = "北国", name_kana = "キタグニ" WHERE id = 1';
+    $res = $mysqli->query($sql);
+
+    $sql = 'SELECT name, name_kana FROM prefecture WHERE id = 1';
+    $res = $mysqli->query($sql);
+
+    foreach ($res as $value) {
+      echo $value["name"] . ", " . $value["name_kana"];
+    }
+    $res->close();
 　  ?>
     </div>
-    7. 6.で追加したレコードをSQLのDELETEを使って削除しなさい。</br>
+    8. 6.で追加したレコードをSQLのDELETEを使って削除しなさい。</br>
     該当しない場合は「該当しませんでした」、削除ができた場合は「prefecture.nameを削除しました。」と出力しなさい</br>
     <div>
     <?php
-    // ココにコーディング
+    // DELETE文でprefecture.id=48が該当すれば削除
+    $sql = 'DELETE FROM prefecture WHERE id = 48';
+
+    if ($res = $mysqli->query($sql)) {
+      echo "prefecture.nameを削除しました。";
+      $mysqli->close();
+    }
+    else {
+      echo "該当しませんでした。";
+      $mysqli->close();
+    }
 　  ?>
     </div>
     </div>
