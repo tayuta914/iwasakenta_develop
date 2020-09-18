@@ -30,9 +30,32 @@
     study08-result.phpに画面遷移して$_GET($_POSTでも可)で入力内容を表示しなさい。</br>
     ※SQLはjapn.sqlを使用しなさい。</br>
     <div>
-    <?php
-    // ココにコーディング
-　  ?>
+      <?php
+            $mysqli = new mysqli('localhost', 'mamp' ,'root' , 'japan');
+            if ( $mysqli->connect_error ) {
+              $mysqli->close();
+            }else {
+              $mysqli->set_charset("utf8");
+            }
+            $sql = "SELECT * FROM prefecture";
+            $stmt = $mysqli->query($sql);
+      ?>
+      <form action="study08-result.php" method="GET">
+      <p>お名前</p>
+        <input type="text" id="my_name" name="my_name" maxlength="50" value=""><br></br>
+      <p>都道府県</p>
+      <select name="prefecture">
+        <?php
+        foreach ($stmt as $preData) {
+          echo "<option>" . $preData["name"] . "</option>";
+        }
+        ?>
+    </select>
+      <p>お問い合わせ内容</p>
+       <input type = "textbox" id="date" name="date" maxlength="300" value=""><br></br> 
+       <input type="submit" value ="送信する">
+      </form>    
+      <?php?>
     </div>
     </div>
   </body>

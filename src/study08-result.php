@@ -19,9 +19,10 @@
       <a href="./study08.php">戻る</a>
     <div>
     <div>
-    <?php
-    // ココにコーディング
-　  ?>
+      お名前 : <?php print(htmlspecialchars($_GET['my_name'], ENT_QUOTES)); ?><br></br>
+      都道府県 : <?php print(htmlspecialchars($_GET['prefecture'],ENT_QUOTES));?><br></br>
+      お問い合わせ内容 : <?php print(htmlspecialchars($_GET['date'], ENT_QUOTES)); ?><br></br>
+
     </div>
     </div>
   </body>
