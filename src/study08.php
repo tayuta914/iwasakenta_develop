@@ -44,7 +44,7 @@
 　  ?>
     <form action="study08-result.php" method="post">
     名前:</br>
-    <input type="text" name="named" style="width:220px"; required placeholder="名前を入力してください。"/></br>
+    <input type="text" name="name" style="width:220px"; required placeholder="名前を入力してください。"/></br>
     都道府県:</br>
     <select name="prefectureData" size="1">
     <?php

@@ -21,7 +21,7 @@
     <div>
     <?php
     // study08からPOSTで受け取った入力内容を取得
-    $named = $_POST['named'];                   // 名前
+    $name = $_POST['name'];                   // 名前
     $prefectureData = $_POST['prefectureData']; // 都道府県
     $quiry = $_POST['quiry'];                   // お問い合わせ内容
 　  ?>
