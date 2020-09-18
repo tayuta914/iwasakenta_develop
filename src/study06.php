@@ -24,7 +24,9 @@
     <div>
     <?php
     // ココにコーディング
+    $date = base64_encode("study06.png");
 
+    print($date);
 　  ?>
     </div>
     2."1."のエンコードした変数をbase64オブジェクトをデコードしてファイル名を「半角英数字の大文字」に変更した上で出力しなさい。</br>
@@ -33,17 +35,38 @@
     <div>
     <?php
     // ココにコーディング
-
+    $date = base64_decode("c3R1ZHkwNi5wbmc=");
+    echo $date;
+    $date = str_replace('study06.png','STUDY06.png',$date);
+    echo "<pre>";
+    echo $date;
+    echo "</pre>";
 　  ?>
+    <img src= "img/study06.png">
     </div>
     3-1.ボタンを押下したら、src/files/にstudy06.csvファイルが保存される実装。</br>
     3-2.htmlでボタンを作成し押下したら実行される関数を作りなさい</br>
     3-3.fopen(),fclose(),fputcsv(),if文,foreach,arrayをすべて使って以下の様に出力しなさい。</br>
     3-4.ifではcsvファルを正常に開けているかの確認をしなさい。</br>
+    
     <div>
     <?php
     // ココにコーディング
+    //3-1
+      $files = array("apple","banna","orenge");
+
+      if (isset($_POST['file'])) {
+        $file = fopen("files/study06.csv", "w"); 
+  
+        if ($file) {
+          var_dump(fputcsv($file, $files));
+        }
+        fclose($file);
+      }
 　  ?>
+      <form method="post" action="study06.php" enctype="multipart/form-data">
+        <input type="submit" name="file">
+      </form>
     </div>
   </body>
 </html>
