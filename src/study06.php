@@ -23,27 +23,64 @@
     1."src/img/study06.png"画像ファイルをbase64にエンコードし出力しなさい。</br>
     <div>
     <?php
-    // ココにコーディング
-
-　  ?>
+    // study06.pngをencode
+    $img = base64_encode(file_get_contents('img/study06.png'));
+    echo 'エンコード出力：' . $img;
+    /*
+    $encodeText = 'study06.php';
+    $encodeText = base64_encode($encodeText);
+    echo 'エンコード出力part2: ' . $imgTitle;
+    */
+    ?>
     </div>
     2."1."のエンコードした変数をbase64オブジェクトをデコードしてファイル名を「半角英数字の大文字」に変更した上で出力しなさい。</br>
     ※画像自体の表示と処理が完了した変数の出力</br>
     study06.png → STUDY06.png</br>
     <div>
     <?php
-    // ココにコーディング
-
-　  ?>
+    // study06.pngをSTUDY06.pngとしてデコード
+    /*
+    $decodeText = base64_decode($encodeText);
+    $imgTitle = str_replace('study06.png','STUDY06.png',$decodeText);
+    echo $imgTitle;
+　  */
+    // rename()をifとからめながら各ファイル名を変数格納したり、パスごとふくめた指定でする？
+    if (bool rename("study06.php", "STUDY06.php")) {
+      
+    }
+    ?>
+    <img src="data:image/png;base64,<?php echo $img; ?>">
     </div>
     3-1.ボタンを押下したら、src/files/にstudy06.csvファイルが保存される実装。</br>
     3-2.htmlでボタンを作成し押下したら実行される関数を作りなさい</br>
     3-3.fopen(),fclose(),fputcsv(),if文,foreach,arrayをすべて使って以下の様に出力しなさい。</br>
-    3-4.ifではcsvファルを正常に開けているかの確認をしなさい。</br>
+    3-4.ifではcsvファイルを正常に開けているかの確認をしなさい。</br>
     <div>
     <?php
-    // ココにコーディング
+    // 3-1から3-4まで
+    // 配列(csvの中身)の作成
+    $fileArray = [
+      "Windows",
+      "Mac",
+      "Linux"
+    ];
+
+    // ダウンロードボタンが押下された時
+    if (isset($_POST['download'])) {
+      $file = fopen("files/study06.csv", "w");  // ファイルポインタをオープン
+      
+      // ファイルが正常に開けていればCSVファイルを配列へ
+      if ($file) {
+        var_dump(fputcsv($file, $fileArray));
+      }
+      // ファイルポインタをクローズ
+      fclose($file);
+    }
 　  ?>
+    <form action="study06.php" method="post">
+    <button type="submit" name="download">ダウンロード</button>
+  </body>
+</html>
     </div>
   </body>
 </html>
