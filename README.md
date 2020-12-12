@@ -31,7 +31,8 @@ if(true){
 
 
 # テストの実行
-
+/src→テスト対象ファイル
+/test→テストコードファイル
 1. compoer install する
 2. composer dump-autoload
 3. composer test で./testディレクトリ内のテストを実行
