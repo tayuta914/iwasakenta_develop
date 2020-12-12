@@ -28,3 +28,10 @@ if(true){
 
 ・関数スコープに気をつけよう  
 関数スコープとは(https://qiita.com/TakashiOshikawa/items/0f2420a1c94ba78c9035)
+
+
+# テストの実行
+
+1. compoer install する
+2. composer dump-autoload
+3. composer test で./testディレクトリ内のテストを実行
